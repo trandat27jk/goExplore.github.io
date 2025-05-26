@@ -1,0 +1,70 @@
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center mb-10">
+      <h2 class="text-3xl font-bold text-[#1A1A4B]">Popular things to do</h2>
+      <a href="#" class="text-sm font-medium text-[#1A1A4B] hover:underline">See all</a>
+    </div>
+
+    <div class="grid gap-4"
+         style="
+           display: grid;
+           grid-template-columns: repeat(3, 1fr);
+           grid-auto-rows: 200px;
+           grid-template-areas:
+             'cruise beach city'
+             'museum beach food';
+         ">
+
+      <!-- Cruises -->
+      <div style="grid-area: cruise;" class="relative rounded-xl overflow-hidden group">
+        <img src="assets/images/cruise.jpg"
+             class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:brightness-110"
+             alt="Cruises" />
+        <div class="absolute bottom-3 left-3 text-white text-sm font-semibold group-hover:text-white">
+          Cruises
+        </div>
+      </div>
+
+      <!-- Beach Tours -->
+      <div style="grid-area: beach;" class="relative rounded-xl overflow-hidden group">
+        <img src="assets/images/beach.jpg"
+             class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:brightness-110"
+             alt="Beach Tours" />
+        <div class="absolute bottom-3 left-3 text-white text-sm font-semibold group-hover:text-white">
+          Beach Tours
+        </div>
+      </div>
+
+      <!-- City Tours -->
+      <div style="grid-area: city;" class="relative rounded-xl overflow-hidden group">
+        <img src="assets/images/city.jpg"
+             class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:brightness-110"
+             alt="City Tours" />
+        <div class="absolute bottom-3 left-3 text-white text-sm font-semibold group-hover:text-white">
+          City Tours
+        </div>
+      </div>
+
+      <!-- Museum Tour -->
+      <div style="grid-area: museum;" class="relative rounded-xl overflow-hidden group">
+        <img src="assets/images/museum_tour.jpg"
+             class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:brightness-110"
+             alt="Museum Tour" />
+        <div class="absolute bottom-3 left-3 text-white text-sm font-semibold group-hover:text-white">
+          Museum Tour
+        </div>
+      </div>
+
+      <!-- Food -->
+      <div style="grid-area: food;" class="relative rounded-xl overflow-hidden group">
+        <img src="assets/images/food.jpg"
+             class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:brightness-110"
+             alt="Food" />
+        <div class="absolute bottom-3 left-3 text-white text-sm font-semibold group-hover:text-white">
+          Food
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
