@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinations - GoExplore</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50 text-[#1A1A4B]">
+
+  <!-- Navigation -->
+  <div id="navigation"></div>
+
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-gray-500 mb-6">
+      <a href="../index.html" class="hover:underline">Home</a>
+      > <a href="#" class="hover:underline">Tours</a>
+      > Phuket
+    </nav>
+
+    <!-- Title and Sort -->
+    <div class="flex justify-between items-start mb-8 flex-col sm:flex-row">
+      <h1 class="text-3xl font-bold mb-4 sm:mb-0">Explore all things to do in Phuket</h1>
+      <div x-data="{ open: false }" class="relative text-sm text-gray-600">
+  <button @click="open = !open" class="flex items-center border border-gray-300 rounded px-3 py-1 bg-white text-[#1A1A4B] hover:border-[#EB662B]">
+    Sort by: <span class="ml-1 font-medium">Featured</span>
+    <svg class="ml-2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2"
+         viewBox="0 0 24 24">
+      <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- Dropdown menu -->
+  <div x-show="open" @click.away="open = false"
+       class="absolute z-10 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg text-[#1A1A4B]">
+    <ul class="divide-y divide-gray-100">
+      <li><button @click="open = false" class="w-full text-left px-4 py-2 hover:bg-[#EB662B] hover:text-white">Featured</button></li>
+      <li><button @click="open = false" class="w-full text-left px-4 py-2 hover:bg-[#EB662B] hover:text-white">Price</button></li>
+      <li><button @click="open = false" class="w-full text-left px-4 py-2 hover:bg-[#EB662B] hover:text-white">Duration</button></li>
+      <li><button @click="open = false" class="w-full text-left px-4 py-2 hover:bg-[#EB662B] hover:text-white">Rating</button></li>
+    </ul>
+  </div>
+</div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <!-- Sidebar Filters -->
+      <aside class="lg:col-span-1 space-y-6">
+        <div class="bg-white rounded-lg shadow">
+          <p class="text-sm font-semibold text-white bg-[#EB662B] px-4 py-2 rounded-t-md">When are you traveling?</p>
+          <div class="bg-white rounded-b-md p-4 border-t">
+            <input type="text" value="February 05 ~ March 14" readonly class="w-full bg-gray-100 rounded px-3 py-2 text-sm text-gray-600" />
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-4">
+          <h4 class="font-semibold text-sm mb-2">Tour Type</h4>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li><label><input type="checkbox" class="mr-2" /> Nature Tours</label></li>
+            <li><label><input type="checkbox" class="mr-2" /> Adventure Tours</label></li>
+            <li><label><input type="checkbox" class="mr-2" /> Cultural Tours</label></li>
+            <li><label><input type="checkbox" class="mr-2" /> Food Tours</label></li>
+            <li><label><input type="checkbox" class="mr-2" /> City Tours</label></li>
+            <li><label><input type="checkbox" class="mr-2" /> Cruises Tours</label></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Destination Cards -->
+      <section class="lg:col-span-3 space-y-6">
+        <!-- Repeat this div for each card -->
+        <div class="bg-white rounded-lg shadow border border-gray-100 flex flex-col md:flex-row overflow-hidden h-[212px]">
+          <!-- Image -->
+          <div class="relative md:w-64 w-full h-52 md:h-52 flex-shrink-0">
+            <img src="../assets/images/hoian_card.jpg" alt="Hoi An" class="w-full h-full object-cover rounded-md" />
+            <span class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded">20 % OFF</span>
+          </div>
+
+          <!-- Text Content -->
+          <div class="flex-1 px-4 py-2 flex flex-col justify-between">
+            <div>
+              <p class="text-sm text-gray-500">Quang Nam, Vietnam</p>
+              <h2 class="text-base font-semibold text-[#1A1A4B] leading-snug mt-1 mb-2">
+                 Discover the charm of Hoi An, a charming town with lantern-lit streets and rich heritage.
+              </h2>
+              <p class="text-sm text-[#1A1A4B] font-medium mb-1">4.8 (269)</p>
+              <p class="text-sm text-gray-500 mb-2">
+                The Phi Phi archipelago is a must-visit while in Phuket, and this speedboat trip.
+              </p>
+            </div>
+            <div class="text-sm text-orange-500 space-x-4">
+              <span style="color:  #EB662B;">Best Price Guarantee</span>
+              <span style="color:#EB662B;">Free Cancellation</span>
+            </div>
+          </div>
+
+          <!-- Price + Button -->
+          <div class="flex flex-col items-end justify-between px-4 py-2 text-sm min-w-[140px] border-l border-gray-100">
+            <div class="text-right">
+              <p class="text-xs text-gray-400 mb-1">2 Days 1 Night</p>
+              <p class="text-xs text-gray-400 line-through">$1200</p>
+              <p class="text-[#1A1A4B] font-semibold">From $114</p>
+            </div>
+            <a href="../destinations/paris.html"
+            class="mt-4 px-4 py-2 rounded-lg transition duration-200"
+            style="border: 1px solid #EB662B; color: #EB662B;"
+            onmouseover="this.style.backgroundColor='#EB662B'; this.style.color='white';"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#EB662B';">
+            View Details
+          </a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow border border-gray-100 flex flex-col md:flex-row overflow-hidden h-[212px]">
+          <!-- Image -->
+          <div class="relative md:w-64 w-full h-52 md:h-52 flex-shrink-0">
+            <img src="../assets/images/roma_card.jpg" alt="Roma" class="w-full h-full object-cover rounded-md" />
+            <span class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded">10 % OFF</span>
+          </div>
+
+          <!-- Text Content -->
+          <div class="flex-1 px-4 py-2 flex flex-col justify-between">
+            <div>
+              <p class="text-sm text-gray-500">Roma, Italy</p>
+              <h2 class="text-base font-semibold text-[#1A1A4B] leading-snug mt-1 mb-2">
+                  Discover ancient ruins, art, and timeless Italian culture.
+              </h2>
+              <p class="text-sm text-[#1A1A4B] font-medium mb-1">4.8 (269)</p>
+              <p class="text-sm text-gray-500 mb-2">
+                The Phi Phi archipelago is a must-visit while in Phuket, and this speedboat trip.
+              </p>
+            </div>
+            <div class="text-sm text-orange-500 space-x-4">
+              <span style="color:  #EB662B;">Best Price Guarantee</span>
+              <span style="color:#EB662B;">Free Cancellation</span>
+            </div>
+          </div>
+
+          <!-- Price + Button -->
+          <div class="flex flex-col items-end justify-between px-4 py-2 text-sm min-w-[140px] border-l border-gray-100">
+            <div class="text-right">
+              <p class="text-xs text-gray-400 mb-1">4 Days 3 Night</p>
+              <p class="text-xs text-gray-400 line-through">$1600</p>
+              <p class="text-[#1A1A4B] font-semibold">From $234</p>
+            </div>
+            <a href="../destinations/paris.html"
+            class="mt-4 px-4 py-2 rounded-lg transition duration-200"
+            style="border: 1px solid #EB662B; color: #EB662B;"
+            onmouseover="this.style.backgroundColor='#EB662B'; this.style.color='white';"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#EB662B';">
+            View Details
+          </a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow border border-gray-100 flex flex-col md:flex-row overflow-hidden h-[212px]">
+          <!-- Image -->
+          <div class="relative md:w-64 w-full h-52 md:h-52 flex-shrink-0">
+            <img src="../assets/images/iceland_card.jpg" alt="Iceland" class="w-full h-full object-cover rounded-md" />
+            <span class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded">20 % OFF</span>
+          </div>
+
+          <!-- Text Content -->
+          <div class="flex-1 px-4 py-2 flex flex-col justify-between">
+            <div>
+              <p class="text-sm text-gray-500">Reykjavik, Iceland</p>
+              <h2 class="text-base font-semibold text-[#1A1A4B] leading-snug mt-1 mb-2">
+                Witness the magical Northern Lights dancing across Iceland's night skies.
+              </h2>
+              <p class="text-sm text-[#1A1A4B] font-medium mb-1">4.8 (269)</p>
+              <p class="text-sm text-gray-500 mb-2">
+                Iceland is a land of fire and ice, where you can explore geysers, waterfalls, and glaciers.
+              </p>
+            </div>
+            <div class="text-sm text-orange-500 space-x-4">
+              <span style="color:  #EB662B;">Best Price Guarantee</span>
+              <span style="color:#EB662B;">Free Cancellation</span>
+            </div>
+          </div>
+
+          <!-- Price + Button -->
+          <div class="flex flex-col items-end justify-between px-4 py-2 text-sm min-w-[140px] border-l border-gray-100">
+            <div class="text-right">
+              <p class="text-xs text-gray-400 mb-1">2 Days 1 Night</p>
+              <p class="text-xs text-gray-400 line-through">$1200</p>
+              <p class="text-[#1A1A4B] font-semibold">From $114</p>
+            </div>
+            <a href="../destinations/paris.html"
+            class="mt-4 px-4 py-2 rounded-lg transition duration-200"
+            style="border: 1px solid #EB662B; color: #EB662B;"
+            onmouseover="this.style.backgroundColor='#EB662B'; this.style.color='white';"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#EB662B';">
+            View Details
+          </a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow border border-gray-100 flex flex-col md:flex-row overflow-hidden h-[212px]">
+          <!-- Image -->
+          <div class="relative md:w-64 w-full h-52 md:h-52 flex-shrink-0">
+            <img src="../assets/images/Halong_card.jpg" alt="Ha Long Bay" class="w-full h-full object-cover rounded-md" />
+            <span class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded">20 % OFF</span>
+          </div>
+
+          <!-- Text Content -->
+          <div class="flex-1 px-4 py-2 flex flex-col justify-between">
+            <div>
+              <p class="text-sm text-gray-500">Quang Ninh, Vietnam</p>
+              <h2 class="text-base font-semibold text-[#1A1A4B] leading-snug mt-1 mb-2">
+                Explore the stunning limestone karsts and emerald waters of Ha Long Bay.
+              </h2>
+              <p class="text-sm text-[#1A1A4B] font-medium mb-1">4.8 (269)</p>
+              <p class="text-sm text-gray-500 mb-2">
+                Ha Long Bay is a UNESCO World Heritage site known for its breathtaking natural beauty.
+              </p>
+            </div>
+            <div class="text-sm text-orange-500 space-x-4">
+              <span style="color:  #EB662B;">Best Price Guarantee</span>
+              <span style="color:#EB662B;">Free Cancellation</span>
+            </div>
+          </div>
+
+          <!-- Price + Button -->
+          <div class="flex flex-col items-end justify-between px-4 py-2 text-sm min-w-[140px] border-l border-gray-100">
+            <div class="text-right">
+              <p class="text-xs text-gray-400 mb-1">2 Days 1 Night</p>
+              <p class="text-xs text-gray-400 line-through">$1200</p>
+              <p class="text-[#1A1A4B] font-semibold">From $114</p>
+            </div>
+            <a href="../destinations/paris.html"
+            class="mt-4 px-4 py-2 rounded-lg transition duration-200"
+            style="border: 1px solid #EB662B; color: #EB662B;"
+            onmouseover="this.style.backgroundColor='#EB662B'; this.style.color='white';"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#EB662B';">
+            View Details
+          </a>
+
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow border border-gray-100 flex flex-col md:flex-row overflow-hidden h-[212px]">
+          <!-- Image -->
+          <div class="relative md:w-64 w-full h-52 md:h-52 flex-shrink-0">
+            <img src="../assets/images/paris_card.jpg" alt="Paris" class="w-full h-full object-cover rounded-md" />
+            <span class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded">20 % OFF</span>
+          </div>
+
+          <!-- Text Content -->
+          <div class="flex-1 px-4 py-2 flex flex-col justify-between">
+            <div>
+              <p class="text-sm text-gray-500">Paris, France</p>
+              <h2 class="text-base font-semibold text-[#1A1A4B] leading-snug mt-1 mb-2">
+                Phi Phi Islands Adventure Day Trip with Seaview Lunch by V. Marine Tour
+              </h2>
+              <p class="text-sm text-[#1A1A4B] font-medium mb-1">4.8 (269)</p>
+              <p class="text-sm text-gray-500 mb-2">
+                The Phi Phi archipelago is a must-visit while in Phuket, and this speedboat trip.
+              </p>
+            </div>
+            <div class="text-sm text-orange-500 space-x-4">
+              <span style="color:  #EB662B;">Best Price Guarantee</span>
+              <span style="color:#EB662B;">Free Cancellation</span>
+            </div>
+          </div>
+
+          <!-- Price + Button -->
+          <div class="flex flex-col items-end justify-between px-4 py-2 text-sm min-w-[140px] border-l border-gray-100">
+            <div class="text-right">
+              <p class="text-xs text-gray-400 mb-1">2 Days 1 Night</p>
+              <p class="text-xs text-gray-400 line-through">$1200</p>
+              <p class="text-[#1A1A4B] font-semibold">From $114</p>
+            </div>
+            <a href="../destinations/paris.html"
+            class="mt-4 px-4 py-2 rounded-lg transition duration-200"
+            style="border: 1px solid #EB662B; color: #EB662B;"
+            onmouseover="this.style.backgroundColor='#EB662B'; this.style.color='white';"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#EB662B';">
+            View Details
+          </a>
+          </div>
+        </div>
+        
+
+        <!-- Copy and paste the above card block here to repeat -->
+        <!-- Or dynamically generate using JavaScript or EJS if server-rendered -->
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- Load Navigation and Footer -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("../sections/navigation.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("navigation").innerHTML = data);
+
+      fetch("../sections/footer.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
+    });
+  </script>
+</body>
+</html>
